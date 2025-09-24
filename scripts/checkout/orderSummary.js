@@ -2,6 +2,7 @@ import {cart,RemoveFromCart,UpdateDeliveryOption} from '../../data/cart.js';
 import { Products,getProduct,getItemsQuantity } from "../../data/products.js";
 import {formatCurrencey} from "../utils/money.js";
 import {deliveryOptions, getDeliveryOption} from "../../data/DeliveryOptions.js";
+import { renderPaymentSummary,} from './paymentSummary.js';
 
 
 export function renderOrderSummary(){
@@ -65,6 +66,7 @@ export function renderOrderSummary(){
           
           document.querySelector(`.js-order-summary`).innerHTML = CartSummaryHTML;
           document.querySelector(`.js-items-quanitity`).innerHTML = `${itemsQuantity} items`;
+          
       });
 
 
@@ -125,13 +127,16 @@ export function renderOrderSummary(){
           RemoveFromCart(productId);
           --itemsQuantity;
           document.querySelector(`.js-items-quanitity`).innerHTML = `${itemsQuantity} items`;
+          renderPaymentSummary();
+          document.querySelector(`.js-items-counter`).innerHTML = `${itemsQuantity}`;
       });
   });
   document.querySelectorAll(`.js-delivery-option`).forEach((element)=>{
     element.addEventListener(`click`,()=>{
       const {productId,deliveryOptionId} = element.dataset;
       UpdateDeliveryOption(productId, deliveryOptionId);
-      renderOrderSummary();
+      renderPaymentSummary();
+      document.querySelector(`.js-items-counter`).innerHTML = `${itemsQuantity}`;
     })
   })
 }
