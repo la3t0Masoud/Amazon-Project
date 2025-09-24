@@ -1,3 +1,26 @@
+
+export function getProduct(productId){
+  let matchingProduct;
+  Products.forEach((products) =>{
+    if(productId === products.id){
+        matchingProduct = products;
+      }
+    }
+  )
+  return matchingProduct;
+}
+  let itemsQuantity = 0;
+
+export function getItemsQuantity(productId,CartInsideItems){
+  Products.forEach((products) =>{
+    if(productId === products.id){
+        itemsQuantity += CartInsideItems.quantity;
+      }
+    }
+  )
+  return itemsQuantity;
+}
+
 export const Products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
