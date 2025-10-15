@@ -21,12 +21,12 @@ export function renderPaymentSummary(){
         
 
     });
-    console.log(itemsCounter);
     let totalBeforeTaxCents = productPriceCents + shippingPriceCents;
     let taxCents = totalBeforeTaxCents * 0.1 ;
     let totalCents = totalBeforeTaxCents + taxCents;
-    
-    const paymentSummaryHTML = `
+    let paymentSummaryHTML;
+    if(cart.length !==0){
+      paymentSummaryHTML = `
           <div class="payment-summary-title">
             Order Summary
           </div>
@@ -69,6 +69,10 @@ export function renderPaymentSummary(){
           <button class="place-order-button button-primary">
             Place your order
           </button>`;
+    }else{
+      paymentSummaryHTML=`your cart is empty :|`
+    }
+    
 
           document.querySelector(`.js-payment-summary`).innerHTML = paymentSummaryHTML;
 }
