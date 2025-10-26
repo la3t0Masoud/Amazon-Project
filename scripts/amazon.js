@@ -5,7 +5,7 @@ UpdateCartQuantity();
 //if we want make a const cart = ...  we must write    ===>    import {cart as mycart} from '../data/cart.js';
 // and cart (in cart.js) known as my cart and we must use in as my cart
 //it is like we imported maycart from cart.js
-
+UpdateCartQuantity();
 let ProductsHTML = ``;
 
 Products.forEach((product)=> {

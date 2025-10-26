@@ -52,9 +52,14 @@ export function AddToCart(productId){
 export function UpdateCartQuantity(){
  let TotalQuantity = 0;
     cart.forEach(product => {
-        TotalQuantity += product.quantity || 0 ;
-        document.querySelector(`.js-cart-quantity`).innerHTML = TotalQuantity;
+        TotalQuantity += product.quantity;
+        console.log(TotalQuantity)
     });
+    if(TotalQuantity){
+        document.querySelector(`.js-cart-quantity`).innerHTML = TotalQuantity;
+    }else{
+        document.querySelector(`.js-cart-quantity`).innerHTML = 0;
+    }
 }
 
 
@@ -95,4 +100,3 @@ export function UpdateDeliveryOption(productId, deliveryOptionId){
     SaveToStorage();
 }
 
-        
