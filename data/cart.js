@@ -53,7 +53,6 @@ export function UpdateCartQuantity(){
  let TotalQuantity = 0;
     cart.forEach(product => {
         TotalQuantity += product.quantity;
-        console.log(TotalQuantity)
     });
     if(TotalQuantity){
         document.querySelector(`.js-cart-quantity`).innerHTML = TotalQuantity;

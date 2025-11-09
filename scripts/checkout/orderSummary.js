@@ -10,7 +10,6 @@ export function renderOrderSummary(){
   
   let itemsQuantity;
   if(cart.length !== 0){
-    console.log(cart)
       cart.forEach((CartInsideItems) =>{
       const productId = CartInsideItems.productId;
       const matchingProduct = getProduct(productId);
@@ -25,7 +24,6 @@ export function renderOrderSummary(){
       const DeliveryDate = Today.add(deliveryOption.deliveryDays,`days`).format(`dddd, MMMM D`);
       function productsRenderer(){
         if(itemsQuantity){
-          console.log(cart);
           CartSummaryHTML +=`
             <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
