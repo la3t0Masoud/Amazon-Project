@@ -32,7 +32,7 @@ Products.forEach((product)=> {
                 ${product.getPrice()}
             </div>
 
-            ${product.extraInfoHTML()} //polymorphism = use method without knowing the class
+            ${product.extraInfoHTML()} <!--polymorphism = use method without knowing the class-->
 
             <div class="product-quantity-container">
                 <select>
