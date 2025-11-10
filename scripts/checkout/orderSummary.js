@@ -63,7 +63,6 @@ export function renderOrderSummary(){
           </div>`;   
         }else{
           CartSummaryHTML=`<p>your cart is empty</p>`;
-          console.log(`entered here`);
         }
       }productsRenderer();
       
